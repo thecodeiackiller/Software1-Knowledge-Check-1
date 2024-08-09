@@ -10,8 +10,8 @@ namespace KnowledgeCheck1_Calculator
     {
         static void Main(string[] args)
         {
-
-            Console.WriteLine("Hello. Press 1 for addition, 2 for subtraction, 3 for multiplication, and 4 for division");
+            Console.WriteLine("Welcome to your homemade calculator.");
+            Console.WriteLine("Press 1 for addition, 2 for subtraction, 3 for multiplication, and 4 for division");
 
             var input = Console.ReadLine();
             var calculator = new Calculator();
@@ -51,7 +51,19 @@ namespace KnowledgeCheck1_Calculator
                     break;
 
                 case "3":
-                    // Add code here
+                    Console.WriteLine("Enter 2 integers to multiply");
+                    var multiplynum1 = Console.ReadLine();
+                    var multiplynum2 = Console.ReadLine();
+
+                    if(int.TryParse(multiplynum1,out int mulNumOne) && int.TryParse(multiplynum2 ,out int mulNumTwo))
+                    {
+                        Console.Write($"Multiplying numbers {multiplynum1} & {multiplynum2} equals");
+                        Console.Write(calculator.Multiply(mulNumTwo,mulNumOne));
+                    }
+                    else
+                    {
+                        Console.WriteLine("One of more of the integers is not an int.");
+                    }
                     break;
 
                 case "4":
@@ -72,7 +84,7 @@ namespace KnowledgeCheck1_Calculator
                     break;
 
                 default:
-                    Console.WriteLine("Unknown input");
+                    Console.WriteLine("Unknown input. Please enter a number 1 through 4.");
                     break;
             }
         }
